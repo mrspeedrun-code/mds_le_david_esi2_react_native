@@ -2,11 +2,11 @@ import React from 'react'
 import { Alert } from "react-native"
 import { StyledInline, StyledInput, StyledButton } from './styles/Todo.styles'
 
-const TodoInfo: React.FC = () => {
+const TaskInfo: React.FC = () => {
 
   return(
     <></>
   )
 }
 
-export default TodoInfo
+export default TaskInfo

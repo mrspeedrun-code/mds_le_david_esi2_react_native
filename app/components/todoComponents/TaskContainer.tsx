@@ -8,10 +8,10 @@ import AddTodo from './AddTodo'
 
 // Styled Components
 import { Container, StyledDate, StyledFAB } from './styles/Todo.styles'
-import TodoList from './TodoList'
+import TaskList from './TaskList'
 
-// Todo Component
-const Todo: React.FC = () => {
+// TaskContainer Component
+const TaskContainer: React.FC = () => {
   const day: String = moment().format('dddd')
   const date: String = moment().format('LL')
 
@@ -21,7 +21,8 @@ const Todo: React.FC = () => {
         <StyledDate>{day} {date}</StyledDate>
         <Stack size={20} />
         <AddTodo />
-        <TodoList />
+
+        <TaskList />
         <StyledFAB
           icon="plus"
           onPress={() => console.log('Pressed')}
@@ -32,4 +33,4 @@ const Todo: React.FC = () => {
 
 }
 
-export default Todo
+export default TaskContainer

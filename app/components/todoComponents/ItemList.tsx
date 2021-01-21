@@ -4,11 +4,14 @@ import { Text } from "react-native"
 import { ListItem, CheckBox, Body } from 'native-base';
 import { IconButton, Colors } from 'react-native-paper';
 
+// Model
+import { Todo } from '../../models/Todo'
+
 // Styled Components
 import { styles } from './styles/Todo.styles'
 
 // ItemList Component
-const ItemList: React.FC = (item: any) => {
+const ItemList: React.FC<Todo> = (item: Todo) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
   const onePressed = () => {

@@ -1,13 +1,14 @@
+// Dependency React Native
 import React from 'react'
-import Todo from './app/components/todoComponents/Todo'
+import TaskContainer from './app/components/todoComponents/TaskContainer';
 
+// Main Component
 const App: React.FC = () => {
   return(
     <>
-      <Todo />
+      <TaskContainer />
     </>
   )
-
 }
 
 export default App;
