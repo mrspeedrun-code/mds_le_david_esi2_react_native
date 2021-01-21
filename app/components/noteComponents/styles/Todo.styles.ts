@@ -1,5 +1,7 @@
+// Dependency React Native
 import styled from 'styled-components'
 import { Text, View, TextInput, Button } from "react-native"
+import { FAB } from 'react-native-paper';
 
 // Styles Todo
 export const Container = styled(View)`
@@ -16,8 +18,12 @@ export const StyledDate = styled(Text)`
 `
 
 // Styles Add Todo
+export const StyledInline = styled(View)`
+  flex-direction: row;
+`
+
 export const StyledInput = styled(TextInput)`
-  border: 1px solid grey;
+  border: 1px solid #D0D0D0;
   width: 80%;
 `
 
@@ -26,3 +32,12 @@ export const StyledButton = styled(Button)`
   border-color: black;
   width: 20%;
 `
+// Style Floating Action Button
+export const StyledFAB = styled(FAB)`
+    margin: 0;
+    position: absolute;
+    right: 15;
+    bottom: 15;
+    background-color: orange;
+`
+
