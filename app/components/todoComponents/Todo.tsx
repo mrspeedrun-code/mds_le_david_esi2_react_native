@@ -8,7 +8,9 @@ import AddTodo from './AddTodo'
 
 // Styled Components
 import { Container, StyledDate, StyledFAB } from './styles/Todo.styles'
+import TodoList from './TodoList'
 
+// Todo Component
 const Todo: React.FC = () => {
   const day: String = moment().format('dddd')
   const date: String = moment().format('LL')
@@ -19,6 +21,7 @@ const Todo: React.FC = () => {
         <StyledDate>{day} {date}</StyledDate>
         <Stack size={20} />
         <AddTodo />
+        <TodoList />
         <StyledFAB
           icon="plus"
           onPress={() => console.log('Pressed')}

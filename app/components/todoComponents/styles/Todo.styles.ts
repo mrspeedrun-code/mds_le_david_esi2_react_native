@@ -1,6 +1,6 @@
 // Dependency React Native
 import styled from 'styled-components'
-import { Text, View, TextInput, Button } from "react-native"
+import { Text, View, TextInput, Button, StatusBar, StyleSheet } from "react-native"
 import { FAB } from 'react-native-paper';
 
 // Styles Todo
@@ -40,4 +40,16 @@ export const StyledFAB = styled(FAB)`
     bottom: 15;
     background-color: orange;
 `
-
+// Styles styles
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    backgroundColor: 'white',
+  },
+  title: {
+    fontSize: 14,
+  },
+});

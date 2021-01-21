@@ -1,5 +1,5 @@
 import React from 'react'
-import Todo from './app/components/noteComponents/Todo'
+import Todo from './app/components/todoComponents/Todo'
 
 const App: React.FC = () => {
   return(
