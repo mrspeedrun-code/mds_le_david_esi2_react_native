@@ -15,7 +15,15 @@ const ItemList: React.FC<Todo> = (item: Todo) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
   const onePressed = () => {
-    (!toggleCheckBox) ? setToggleCheckBox(true) : setToggleCheckBox(false)
+    if (!toggleCheckBox) {
+      setToggleCheckBox(true)
+    } else {
+      setToggleCheckBox(false)
+    }
+  }
+
+  const removeItem = () => {
+    console.log("remove " + item.title + toggleCheckBox)
   }
 
   return(
@@ -31,7 +39,7 @@ const ItemList: React.FC<Todo> = (item: Todo) => {
           icon="delete"
           color={Colors.black}
           size={20}
-          onPress={() => console.log('Pressed')}
+          onPress={removeItem}
         />
       </ListItem>
   )

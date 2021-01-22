@@ -1,7 +1,8 @@
 // Dependency React Native
 import styled from 'styled-components'
 import { Text, View, TextInput, Button, StatusBar, StyleSheet } from "react-native"
-import { FAB } from 'react-native-paper';
+import { FAB } from 'react-native-paper'
+import { Label } from 'native-base'
 
 // Styles Todo
 export const Container = styled(View)`
@@ -32,24 +33,34 @@ export const StyledButton = styled(Button)`
   border-color: black;
   width: 20%;
 `
+
 // Style Floating Action Button
-export const StyledFAB = styled(FAB)`
+type props = { icon: string, onPress: any };
+export const StyledFAB: React.FC<props> = styled(FAB)`
     margin: 0;
     position: absolute;
-    right: 15;
-    bottom: 15;
+    right: 15px;
+    bottom: 15px;
     background-color: orange;
 `
 // Styles styles
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: 'white',
-  },
   title: {
     fontSize: 14,
   },
-});
+  boxContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
+  },
+  box: {
+    paddingTop: 20,
+    paddingBottom: 10
+  },
+  inner: {
+    backgroundColor: "#eee",
+  },
+  innerLeft: {
+    backgroundColor: "#eee",
+  }
+})
