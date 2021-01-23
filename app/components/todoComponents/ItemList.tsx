@@ -1,8 +1,11 @@
 // Dependency React Native
-import React, { useState } from 'react'
+import React, { useState, useContext, useMemo } from 'react'
 import { Text } from "react-native"
 import { ListItem, CheckBox, Body } from 'native-base';
 import { IconButton, Colors } from 'react-native-paper';
+
+// Context
+import { TodoContext } from './TodoContext'
 
 // Model
 import { Todo } from '../../models/Todo'
@@ -11,8 +14,9 @@ import { Todo } from '../../models/Todo'
 import { styles } from './styles/Todo.styles'
 
 // ItemList Component
-const ItemList: React.FC<Todo> = (item: Todo) => {
+const ItemList: React.FC<Todo> = (item: Todo, {getId}) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
+  const {taskList, setTaskList} = useContext<any>(TodoContext)
 
   const onePressed = () => {
     if (!toggleCheckBox) {
@@ -23,7 +27,7 @@ const ItemList: React.FC<Todo> = (item: Todo) => {
   }
 
   const removeItem = () => {
-    console.log("remove " + item.title + toggleCheckBox)
+    setTaskList(t => t.filter(idx => idx.id !== item.id))
   }
 
   return(
