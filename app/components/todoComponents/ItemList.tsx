@@ -5,7 +5,7 @@ import { ListItem, CheckBox, Body } from 'native-base';
 import { IconButton, Colors } from 'react-native-paper';
 
 // Context
-import { TodoContext } from './TodoContext'
+import { TodoContext, DoneContext } from './TodoContext'
 
 // Model
 import { Todo } from '../../models/Todo'
@@ -17,17 +17,29 @@ import { styles } from './styles/Todo.styles'
 const ItemList: React.FC<Todo> = (item: Todo, {getId}) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
   const {taskList, setTaskList} = useContext<any>(TodoContext)
+  let {doneCount, setDoneCount} = useContext<any>(DoneContext)
 
-  const onePressed = () => {
+  const onePressed = (): void => {
     if (!toggleCheckBox) {
       setToggleCheckBox(true)
+      setTaskList(t => t.map(i => {
+        if(item.id === i.id) {return { ...i, isChecked: true}}
+        return i
+      }))
+      setDoneCount(c => c + 1)
     } else {
       setToggleCheckBox(false)
+      setTaskList(t => t.map(i => {
+        if(item.id === i.id) {return { ...i, isChecked: false}}
+        return i
+      }))
+      setDoneCount(c => c - 1)
     }
   }
 
-  const removeItem = () => {
+  const removeItem = (): void => {
     setTaskList(t => t.filter(idx => idx.id !== item.id))
+    if (item.isChecked == true) setDoneCount(c => c - 1)
   }
 
   return(
@@ -40,11 +52,11 @@ const ItemList: React.FC<Todo> = (item: Todo, {getId}) => {
         <Text style={styles.title}>{item.title}</Text>
       </Body>
       <IconButton
-          icon="delete"
-          color={Colors.black}
-          size={20}
-          onPress={removeItem}
-        />
+        icon="delete"
+        color={Colors.black}
+        size={20}
+        onPress={removeItem}
+      />
       </ListItem>
   )
 }
